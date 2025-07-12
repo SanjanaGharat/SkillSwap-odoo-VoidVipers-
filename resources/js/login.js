@@ -23,3 +23,23 @@ tailwind.config = {
                 }
             }
         }
+
+
+ document.getElementById('login-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form data
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    // Here you would typically make an API call to your backend
+    // For demonstration, we'll simulate a successful login
+    const userData = {
+        name: "John Doe",  // This should come from your actual login response
+        email: email,
+        // other user data you want to store
+    };
+    
+    // Call the global function to handle login success
+    window.handleLoginSuccess(userData);
+});

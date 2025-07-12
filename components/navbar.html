@@ -1,0 +1,59 @@
+<nav class="bg-dark-900 border-b border-dark-800 px-6 py-4 sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <a href="/" class="flex items-center space-x-3">
+                <div class="profile-icon w-10 h-10 rounded-lg flex items-center justify-center">
+                    <img src="/resources/images/logo.png" alt="SkillSwap Logo" class="h-10 w-10">
+                </div>
+                <h1 class="text-xl font-bold bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">SkillSwap</h1>
+            </a>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center space-x-3">
+            <div id="mobile-auth-icon" class="hidden">
+                <!-- Will be populated by auth.js for logged-in users -->
+            </div>
+            <button id="mobile-menu-button" class="text-gray-300 hover:text-purple-400 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="#search-section" class="text-gray-300 hover:text-purple-400 transition-colors">Browse</a>
+            <a href="/pages/howitworks.html" class="text-gray-300 hover:text-purple-400 transition-colors">How It Works</a>
+            <a href="/pages/about.html" class="text-gray-300 hover:text-purple-400 transition-colors">About</a>
+        </div>
+        
+        <!-- Auth Buttons - Desktop -->
+        <div class="hidden md:flex items-center space-x-3" id="auth-buttons">
+            <!-- Content will be dynamically inserted by auth.js -->
+            <a href="/pages/login.html" class="px-4 py-2 rounded-lg font-medium text-sm bg-dark-800 hover:bg-dark-700 transition-colors inline-block">
+                Login
+            </a>
+            <a href="/pages/signin.html" class="px-4 py-2 rounded-lg font-medium text-sm bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 transition-all shadow-purple-lg inline-block">
+                Sign Up
+            </a>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+        <div class="flex flex-col space-y-2 px-2">
+            <a href="#search-section" class="block px-3 py-2 rounded-md text-gray-300 hover:text-purple-400 hover:bg-dark-800">Browse</a>
+            <a href="/pages/howitworks.html" class="block px-3 py-2 rounded-md text-gray-300 hover:text-purple-400 hover:bg-dark-800">How It Works</a>
+            <a href="/pages/about.html" class="block px-3 py-2 rounded-md text-gray-300 hover:text-purple-400 hover:bg-dark-800">About</a>
+            
+            <!-- Mobile Auth Section -->
+            <div id="mobile-auth-section" class="border-t border-dark-700 pt-2 mt-2">
+                <a href="/pages/login.html" class="block px-3 py-2 rounded-md text-gray-300 hover:text-purple-400 hover:bg-dark-800">Login</a>
+                <a href="/pages/signin.html" class="block px-3 py-2 rounded-md text-purple-400 hover:text-purple-300 hover:bg-dark-800">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Desktop Profile Dropdown (positioned absolutely in auth.js) -->
