@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap | Swap Requests</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/resources/css/approval.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body class="bg-dark-950 text-gray-100 font-sans min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-dark-900/80 border-b border-dark-800 px-6 py-3 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="p-1 rounded-lg shadow-md">
+                    <img src="/resources/images/logo.png" alt="SkillSwap Logo" class="h-7 w-7">
+                </div>
+                <h1 class="text-xl font-bold bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">SkillSwap</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="/" class="text-gray-400 hover:text-purple-300 transition-colors px-3 py-1 rounded-lg">Home</a>
+                <a href="#" class="relative text-purple-300 px-3 py-1 rounded-lg bg-purple-900/30 group">
+                    Pending
+                    <span class="absolute inset-0 rounded-lg bg-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                </a>
+                <div class="relative">
+                    <input type="text" placeholder="Search requests..." class="bg-dark-800 border border-dark-700 rounded-full py-2 px-4 pl-10 text-sm focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-40 md:w-64 transition-all duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 absolute left-3 top-2.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+            <div>
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-1">Swap Requests</h2>
+                <p class="text-gray-500">Manage your pending and completed skill exchanges</p>
+            </div>
+            <div class="flex space-x-2">
+                <button class="flex items-center space-x-1 px-3 py-2 rounded-lg text-sm bg-dark-800 hover:bg-dark-700 border border-dark-700 hover:border-purple-900/50 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                    </svg>
+                    <span>Filter</span>
+                </button>
+                <button class="flex items-center space-x-1 px-3 py-2 rounded-lg text-sm bg-dark-800 hover:bg-dark-700 border border-dark-700 hover:border-purple-900/50 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4" />
+                    </svg>
+                    <span>Sort</span>
+                </button>
+            </div>
+        </div>
+
+<!-- Request Cards -->
+<div class="space-y-4">
+    <!-- Pending Request -->
+    <div class="request-card bg-dark-850 border border-dark-800 rounded-xl overflow-hidden hover:border-purple-900/50 transition-all group">
+        <div class="p-5">
+            <div class="flex flex-col md:flex-row gap-6 items-start">
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4 min-w-[200px]">
+                    <div class="relative">
+                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-800 border-2 border-purple-600/80 shadow-lg overflow-hidden flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10 text-purple-500/80">
+                                <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="absolute -bottom-1 -right-1 bg-purple-600 text-xs font-bold text-white rounded-full w-5 h-5 flex items-center justify-center border border-dark-900">3.9</div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white group-hover:text-purple-300 transition-colors">Marc Demo</h3>
+                        <div class="flex items-center text-yellow-400 text-xs mt-1">
+                            ★★★★☆ <span class="text-gray-500 ml-1">(24 swaps)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skills Info -->
+                <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">Skills Offered</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-purple-900/20 text-purple-300 px-3 py-1 rounded-full text-xs font-medium border border-purple-800/50">Game Script</span>
+                            <span class="skill-chip bg-purple-900/20 text-purple-300 px-3 py-1 rounded-full text-xs font-medium border border-purple-800/50">Python</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">Skills Wanted</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-pink-900/20 text-pink-300 px-3 py-1 rounded-full text-xs font-medium border border-pink-800/50">Graphic Design</span>
+                            <span class="skill-chip bg-pink-900/20 text-pink-300 px-3 py-1 rounded-full text-xs font-medium border border-pink-800/50">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Status Actions -->
+                <div class="flex flex-col justify-center space-y-2 min-w-[120px] w-full md:w-auto">
+                    <div class="status-badge bg-yellow-900/30 text-yellow-400 px-3 py-1 rounded-full text-xs font-medium text-center">
+                        Pending
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 px-3 py-1.5 rounded-lg text-xs font-medium bg-green-600 hover:bg-green-500 transition-colors shadow-md hover:shadow-green-500/20">
+                            Accept
+                        </button>
+                        <button class="flex-1 px-3 py-1.5 rounded-lg text-xs font-medium bg-dark-700 hover:bg-dark-600 transition-colors border border-dark-600">
+                            Reject
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rejected Request -->
+    <div class="request-card bg-dark-850 border border-dark-800 rounded-xl overflow-hidden opacity-80 hover:opacity-100 transition-opacity">
+        <div class="p-5">
+            <div class="flex flex-col md:flex-row gap-6 items-start">
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4 min-w-[200px]">
+                    <div class="relative">
+                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-800 border-2 border-gray-600 shadow-lg overflow-hidden flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10 text-gray-500">
+                                <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="absolute -bottom-1 -right-1 bg-gray-600 text-xs font-bold text-white rounded-full w-5 h-5 flex items-center justify-center border border-dark-900">3.5</div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white">Alex Johnson</h3>
+                        <div class="flex items-center text-yellow-400 text-xs mt-1">
+                            ★★★☆☆ <span class="text-gray-500 ml-1">(8 swaps)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skills Info -->
+                <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">Skills Offered</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs font-medium border border-gray-700">Copywriting</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">Skills Wanted</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs font-medium border border-gray-700">Video Editing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Status -->
+                <div class="flex items-center justify-end md:justify-start w-full md:w-auto">
+                    <div class="status-badge bg-red-900/30 text-red-400 px-3 py-1 rounded-full text-xs font-medium text-center min-w-[120px]">
+                        Rejected
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center mt-10">
+            <nav class="inline-flex items-center space-x-1 rounded-lg bg-dark-800 p-1 shadow-inner">
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-dark-700 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-purple-600 text-white font-medium shadow-md">1</button>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-dark-700 transition-colors">2</button>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-dark-700 transition-colors">3</button>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-dark-700 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </main>
+     <script src="/resources/js/approval.js"></script>
+</body>
+</html>

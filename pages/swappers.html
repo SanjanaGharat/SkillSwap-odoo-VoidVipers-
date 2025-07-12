@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Skill Swappers | SkillSwap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/resources/css/swappers.css">
+</head>
+<body class="bg-dark-900 text-white font-['Inter']">
+<!-- Navigation -->
+<nav class="bg-dark-900/80 border-b border-dark-800 px-6 py-3 sticky top-0 z-50 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="/" class="flex items-center space-x-3 group">
+            <div class="p-1">
+                <img src="/resources/images/logo.png" alt="SkillSwap Logo" class="h-7 w-7 transition-transform group-hover:scale-105">
+            </div>
+            <h1 class="text-xl font-bold bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-300 group-hover:to-purple-200 transition-all">
+                SkillSwap
+            </h1>
+        </a>
+        
+        <div class="flex items-center space-x-2">
+            <a href="/" class="text-gray-400 hover:text-purple-300 hover:bg-dark-800/60 transition-colors px-3 py-1.5 rounded-lg text-sm">
+                Home
+            </a>
+            <a href="#" class="text-gray-400 hover:text-purple-300 hover:bg-dark-800/60 transition-colors px-3 py-1.5 rounded-lg text-sm">
+                Swappers
+            </a>
+        </div>
+    </div>
+</nav>
+
+    <!-- Main Content -->
+    <section id="all-swappers" class="max-w-7xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+            <h1 class="text-3xl font-bold text-white">All Skill Swappers</h1>
+            <div class="relative w-full md:w-64">
+                <input id="search-swappers" type="text" placeholder="Search swappers..." class="w-full bg-dark-800 border border-dark-700 rounded-lg px-4 py-2 pl-10 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <svg class="absolute left-3 top-2.5 h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="flex flex-wrap gap-4 mb-8">
+            <div class="filter-group">
+                <label class="block text-gray-500 text-xs font-medium mb-2 uppercase tracking-wider">Skills Offered</label>
+                <select id="offered-filter" class="bg-dark-800 border border-dark-700 rounded-lg px-4 py-2 text-white w-full md:w-48">
+                    <option value="">Any skill</option>
+                    <option>Game Script</option>
+                    <option>Python</option>
+                    <option>Graphic Design</option>
+                    <option>Web Development</option>
+                    <option>UI/UX Design</option>
+                    <option>Digital Marketing</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="block text-gray-500 text-xs font-medium mb-2 uppercase tracking-wider">Skills Wanted</label>
+                <select id="wanted-filter" class="bg-dark-800 border border-dark-700 rounded-lg px-4 py-2 text-white w-full md:w-48">
+                    <option value="">Any skill</option>
+                    <option>Game Script</option>
+                    <option>Python</option>
+                    <option>Graphic Design</option>
+                    <option>Web Development</option>
+                    <option>UI/UX Design</option>
+                    <option>Digital Marketing</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="block text-gray-500 text-xs font-medium mb-2 uppercase tracking-wider">Rating</label>
+                <select id="rating-filter" class="bg-dark-800 border border-dark-700 rounded-lg px-4 py-2 text-white w-full md:w-48">
+                    <option value="0">Any rating</option>
+                    <option value="5">★★★★★</option>
+                    <option value="4">★★★★☆</option>
+                    <option value="3">★★★☆☆</option>
+                    <option value="2">★★☆☆☆</option>
+                    <option value="1">★☆☆☆☆</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Swappers Grid -->
+        <div id="swappers-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Cards will be dynamically inserted here -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center mt-12">
+            <nav class="flex items-center space-x-2">
+                <button id="prev-page" class="px-3 py-1 rounded-lg bg-dark-800 text-gray-400 hover:bg-purple-900/50 hover:text-white transition-colors">
+                    &laquo;
+                </button>
+                <div id="page-numbers" class="flex items-center space-x-2">
+                    <!-- Page numbers will be inserted here -->
+                </div>
+                <button id="next-page" class="px-3 py-1 rounded-lg bg-dark-800 text-gray-400 hover:bg-purple-900/50 hover:text-white transition-colors">
+                    &raquo;
+                </button>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-dark-800 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <div class="h-10 w-10 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold">SS</div>
+                    <h2 class="text-xl font-bold bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">SkillSwap</h2>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">Contact Us</a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">FAQ</a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-500 text-sm">
+                &copy; 2023 SkillSwap. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+ <script src="/resources/js/swapper.js"></script>
+</body>
+</html>

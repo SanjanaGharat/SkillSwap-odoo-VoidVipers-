@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/resources/css/settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-dark-950 text-gray-100 font-sans min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-dark-900/80 border-b border-dark-800 px-6 py-3 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="p-1 rounded-lg  shadow-md">
+                    <img src="/resources/images/logo.png" alt="SkillSwap Logo" class="h-7 w-7">
+                </div>
+                <h1 class="text-xl font-bold bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">SkillSwap</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="/" class="text-gray-400 hover:text-purple-300 transition-colors px-3 py-1 rounded-lg">Home</a>
+                <a href="#" class="relative text-purple-300 px-3 py-1 rounded-lg bg-purple-900/30 group">
+                    Settings
+                    <span class="absolute inset-0 rounded-lg bg-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+            <div>
+                <h1 class="text-3xl font-bold text-white mb-1">Account Settings</h1>
+                <p class="text-gray-500">Manage your profile and preferences</p>
+            </div>
+            <button class="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-medium transition-all shadow-lg hover:shadow-purple-glow">
+                Save Changes
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left Column - Navigation -->
+            <div class="lg:col-span-1">
+                <div class="settings-card border border-dark-800 rounded-xl p-1 shadow-soft">
+                    <nav class="space-y-1" id="settingsTabs">
+                        <a href="#security" class="tab-link flex items-center space-x-3 px-4 py-3 rounded-lg bg-purple-900/30 text-purple-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                            <span>Security</span>
+                        </a>
+                        <a href="#preferences" class="tab-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-dark-800 text-gray-400 hover:text-purple-300 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span>Preferences</span>
+                        </a>
+                        <a href="#skills" class="tab-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-dark-800 text-gray-400 hover:text-purple-300 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                            </svg>
+                            <span>Skills</span>
+                        </a>
+                        <a href="#availability" class="tab-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-dark-800 text-gray-400 hover:text-purple-300 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>Availability</span>
+                        </a>
+                        <a href="#privacy" class="tab-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-dark-800 text-gray-400 hover:text-purple-300 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                            <span>Privacy</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Right Column - Settings Content -->
+            <div class="lg:col-span-2 space-y-6" id="tabContents">
+                <!-- Security Settings -->
+                <div id="security" class="tab-content active settings-card border border-dark-800 rounded-xl p-6 shadow-soft">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                        Security Settings
+                    </h2>
+                    <!-- Security Settings -->
+                    <div class="settings-card border border-dark-800 rounded-xl p-6 shadow-soft">
+                        <h2 class="text-xl font-bold text-white mb-6 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                            Security Settings
+                        </h2>
+                        
+                        <div class="space-y-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Current Password</label>
+                                <input type="password" placeholder="Enter current password" class="w-full bg-dark-800 border border-dark-700 rounded-lg py-2.5 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                            </div>
+                            
+                            <div class="flex flex-col md:flex-row gap-6">
+                                <div class="flex-1">
+                                    <label class="block text-sm font-medium text-gray-400 mb-2">New Password</label>
+                                    <input type="password" placeholder="Enter new password" class="w-full bg-dark-800 border border-dark-700 rounded-lg py-2.5 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                </div>
+                                <div class="flex-1">
+                                    <label class="block text-sm font-medium text-gray-400 mb-2">Confirm Password</label>
+                                    <input type="password" placeholder="Confirm new password" class="w-full bg-dark-800 border border-dark-700 rounded-lg py-2.5 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between pt-2">
+                                <div>
+                                    <h3 class="text-sm font-medium text-white">Two-Factor Authentication</h3>
+                                    <p class="text-xs text-gray-500">Add an extra layer of security to your account</p>
+                                </div>
+                                <button class="px-4 py-2 rounded-lg bg-dark-800 hover:bg-dark-700 border border-dark-700 text-sm font-medium transition-colors">
+                                    Enable 2FA
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preferences Settings -->
+                <div id="preferences" class="tab-content settings-card border border-dark-800 rounded-xl p-6 shadow-soft">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        Preferences
+                    </h2>
+                    <!-- Preferences Settings -->
+                    <div class="settings-card border border-dark-800 rounded-xl p-6 shadow-soft mt-6">
+                        <h2 class="text-xl font-bold text-white mb-6 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Preferences
+                        </h2>
+                        
+                        <div class="space-y-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Theme</label>
+                                <div class="grid grid-cols-3 gap-3">
+                                    <button class="p-3 rounded-lg border border-dark-700 bg-dark-900 hover:border-purple-500 transition-colors">
+                                        <div class="flex items-center justify-center space-x-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                            </svg>
+                                            <span class="text-sm">Light</span>
+                                        </div>
+                                    </button>
+                                    <button class="p-3 rounded-lg border-2 border-purple-500 bg-dark-800">
+                                        <div class="flex items-center justify-center space-x-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                                            </svg>
+                                            <span class="text-sm">Dark</span>
+                                        </div>
+                                    </button>
+                                    <button class="p-3 rounded-lg border border-dark-700 bg-dark-900 hover:border-purple-500 transition-colors">
+                                        <div class="flex items-center justify-center space-x-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                            </svg>
+                                            <span class="text-sm">System</span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Language</label>
+                                <select class="w-full bg-dark-800 border border-dark-700 rounded-lg py-2.5 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                    <option>English (United States)</option>
+                                    <option>Spanish</option>
+                                    <option>French</option>
+                                    <option>German</option>
+                                    <option>Hindi</option>
+                                </select>
+                            </div>
+                            
+                            <div class="flex items-center justify-between pt-2">
+                                <div>
+                                    <h3 class="text-sm font-medium text-white">Show Skill Badges</h3>
+                                    <p class="text-xs text-gray-500">Display your verified skill badges on your profile</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer" checked>
+                                    <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <!-- Skills Settings -->
+                <div id="skills" class="tab-content settings-card border border-dark-800 rounded-xl p-6 shadow-soft">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                        </svg>
+                        Skills & Expertise
+                    </h2>
+                    <!-- Skills Settings -->
+<div class="settings-card border border-dark-800 rounded-xl p-6 shadow-soft mt-6">
+    <h2 class="text-xl font-bold text-white mb-6 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+        </svg>
+        Skills & Expertise
+    </h2>
+    
+    <div class="space-y-5">
+        <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2">Skills to Offer</label>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-purple-900/30 text-purple-300 text-sm">
+                    Web Development
+                    <button type="button" class="ml-1.5 inline-flex items-center justify-center w-4 h-4 rounded-full text-purple-400 hover:bg-purple-800 hover:text-purple-200">
+                        <svg class="w-2 h-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </span>
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-purple-900/30 text-purple-300 text-sm">
+                    UI/UX Design
+                    <button type="button" class="ml-1.5 inline-flex items-center justify-center w-4 h-4 rounded-full text-purple-400 hover:bg-purple-800 hover:text-purple-200">
+                        <svg class="w-2 h-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </span>
+            </div>
+            <div class="relative">
+                <input type="text" placeholder="Add a skill you can teach" class="w-full bg-dark-800 border border-dark-700 rounded-lg py-2.5 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                <button class="absolute right-2.5 top-2.5 text-purple-400 hover:text-purple-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div class="flex items-center justify-between pt-2">
+            <div>
+                <h3 class="text-sm font-medium text-white">Skill Verification</h3>
+                <p class="text-xs text-gray-500">Get your skills verified by the community</p>
+            </div>
+            <button class="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-medium transition-all shadow-lg hover:shadow-purple-glow text-sm">
+                Request Verification
+            </button>
+        </div>
+    </div>
+</div>
+                </div>
+
+                <!-- Availability Settings -->
+                <div id="availability" class="tab-content settings-card border border-dark-800 rounded-xl p-6 shadow-soft">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        Availability
+                    </h2>
+                    <!-- Availability Settings -->
+<div class="settings-card border border-dark-800 rounded-xl p-6 shadow-soft mt-6">
+    <h2 class="text-xl font-bold text-white mb-6 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        Availability
+    </h2>
+    
+    <div class="space-y-5">
+        <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2">Weekly Hours Available</label>
+            <div class="flex items-center space-x-4">
+                <input type="range" min="0" max="40" value="15" class="w-full h-2 bg-purple-900 rounded-lg appearance-none cursor-pointer">
+                <span class="text-sm font-medium text-white min-w-[40px] text-center">15 hrs</span>
+            </div>
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2">Preferred Days</label>
+            <div class="grid grid-cols-4 gap-2">
+                <label class="flex items-center">
+                    <input type="checkbox" class="sr-only peer">
+                    <div class="w-full py-2 px-3 text-center rounded-lg border border-dark-700 peer-checked:border-purple-500 peer-checked:bg-purple-900/30 peer-checked:text-purple-300 cursor-pointer">
+                        Mon
+                    </div>
+                </label>
+                <label class="flex items-center">
+                    <input type="checkbox" class="sr-only peer" checked>
+                    <div class="w-full py-2 px-3 text-center rounded-lg border border-dark-700 peer-checked:border-purple-500 peer-checked:bg-purple-900/30 peer-checked:text-purple-300 cursor-pointer">
+                        Tue
+                    </div>
+                </label>
+                <label class="flex items-center">
+                    <input type="checkbox" class="sr-only peer" checked>
+                    <div class="w-full py-2 px-3 text-center rounded-lg border border-dark-700 peer-checked:border-purple-500 peer-checked:bg-purple-900/30 peer-checked:text-purple-300 cursor-pointer">
+                        Wed
+                    </div>
+                </label>
+                <label class="flex items-center">
+                    <input type="checkbox" class="sr-only peer" checked>
+                    <div class="w-full py-2 px-3 text-center rounded-lg border border-dark-700 peer-checked:border-purple-500 peer-checked:bg-purple-900/30 peer-checked:text-purple-300 cursor-pointer">
+                        Thu
+                    </div>
+                </label>
+                <label class="flex items-center">
+                    <input type="checkbox" class="sr-only peer" checked>
+                    <div class="w-full py-2 px-3 text-center rounded-lg border border-dark-700 peer-checked:border-purple-500 peer-checked:bg-purple-900/30 peer-checked:text-purple-300 cursor-pointer">
+                        Fri
+                    </div>
+                </label>
+                <label class="flex items-center">
+                    <input type="checkbox" class="sr-only peer">
+                    <div class="w-full py-2 px-3 text-center rounded-lg border border-dark-700 peer-checked:border-purple-500 peer-checked:bg-purple-900/30 peer-checked:text-purple-300 cursor-pointer">
+                        Sat
+                    </div>
+                </label>
+                <label class="flex items-center">
+                    <input type="checkbox" class="sr-only peer">
+                    <div class="w-full py-2 px-3 text-center rounded-lg border border-dark-700 peer-checked:border-purple-500 peer-checked:bg-purple-900/30 peer-checked:text-purple-300 cursor-pointer">
+                        Sun
+                    </div>
+                </label>
+            </div>
+        </div>
+        
+        <div class="flex items-center justify-between pt-2">
+            <div>
+                <h3 class="text-sm font-medium text-white">Available for Swaps</h3>
+                <p class="text-xs text-gray-500">Show your profile in search results</p>
+            </div>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+            </label>
+        </div>
+    </div>
+</div>
+
+                </div>
+
+                <!-- Privacy Settings -->
+                <div id="privacy" class="tab-content settings-card border border-dark-800 rounded-xl p-6 shadow-soft">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                        Privacy Settings
+                    </h2>
+                    <!-- Privacy Settings -->
+<div class="settings-card border border-dark-800 rounded-xl p-6 shadow-soft mt-6">
+    <h2 class="text-xl font-bold text-white mb-6 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Privacy Settings
+    </h2>
+    
+    <div class="space-y-5">
+        <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2">Profile Visibility</label>
+            <select class="w-full bg-dark-800 border border-dark-700 rounded-lg py-2.5 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                <option>Public (Visible to everyone)</option>
+                <option>Community (Visible to SkillSwap members only)</option>
+                <option>Private (Visible only to people you approve)</option>
+            </select>
+        </div>
+        
+        <div class="flex items-center justify-between">
+            <div>
+                <h3 class="text-sm font-medium text-white">Show in Search Engines</h3>
+                <p class="text-xs text-gray-500">Allow your profile to appear in search engine results</p>
+            </div>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+            </label>
+        </div>
+        
+        <div class="border-t border-dark-800 pt-4">
+            <h3 class="text-sm font-medium text-white mb-3">Data Privacy</h3>
+            <button class="px-4 py-2 rounded-lg bg-dark-800 hover:bg-dark-700 border border-dark-700 text-sm font-medium transition-colors">
+                Download Your Data
+            </button>
+            <button class="ml-3 px-4 py-2 rounded-lg bg-red-900/30 hover:bg-red-900/40 border border-red-900/50 text-red-400 text-sm font-medium transition-colors">
+                Delete Account
+            </button>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+ <script src="/resources/js/settings.js"></script>
+</body>
+</html>

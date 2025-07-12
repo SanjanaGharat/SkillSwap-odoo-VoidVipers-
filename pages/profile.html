@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap | User Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/resources/css/profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-dark-950 text-gray-200 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-dark-900 border-b border-dark-800 px-6 py-4 sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="/resources/images/logo.png" alt="SkillSwap Logo" class="h-8 w-8">
+                <h1 class="text-xl font-bold text-purple-400">SkillSwap</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="/" class="text-gray-300 hover:text-purple-400 transition-colors">Home</a>
+                <a href="#" class="text-gray-300 hover:text-purple-400 transition-colors">Profile</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Profile Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+            <div>
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">User Profile</h2>
+                <p class="text-gray-500">Manage your profile and skill preferences</p>
+            </div>
+            <div class="flex space-x-3 mt-4 md:mt-0">
+                <button class="px-4 py-2 rounded-lg font-medium bg-dark-800 hover:bg-dark-700 border border-dark-700 transition-colors">
+                    Discard
+                </button>
+                <button class="px-4 py-2 rounded-lg font-medium bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 transition-all shadow-lg">
+                    Save Changes
+                </button>
+            </div>
+        </div>
+
+        <!-- Profile Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column - Basic Info -->
+            <div class="lg:col-span-1">
+                <div class="bg-dark-850 border border-dark-800 rounded-xl p-6 shadow-lg">
+                    <!-- Profile Photo -->
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="relative mb-4">
+<!-- Default human profile photo -->
+<div class="w-24 h-24 md:w-28 md:h-28 rounded-full bg-gray-200 border-2 border-purple-600/80 shadow-lg overflow-hidden flex items-center justify-center">
+  <!-- Neutral human silhouette SVG -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-16 h-16 text-purple-600/70">
+    <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
+  </svg>
+</div>                            <div class="absolute bottom-0 right-0 bg-purple-600 rounded-full p-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="text-sm bg-purple-900/50 hover:bg-purple-800 text-purple-300 px-4 py-2 rounded-lg transition-colors">
+                                Add/Edit
+                            </button>
+                            <button class="text-sm bg-dark-800 hover:bg-dark-700 text-gray-300 px-4 py-2 rounded-lg transition-colors">
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Basic Info -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Name</label>
+                            <input type="text" value="John Doe" class="w-full bg-dark-800 border border-dark-700 rounded-lg py-2 px-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Location</label>
+                            <input type="text" value="New York, USA" class="w-full bg-dark-800 border border-dark-700 rounded-lg py-2 px-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Availability</label>
+                            <select class="w-full bg-dark-800 border border-dark-700 rounded-lg py-2 px-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                <option>Flexible</option>
+                                <option>Weekdays</option>
+                                <option>Weekends</option>
+                                <option>Evenings</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Profile Bio</label>
+                            <textarea rows="4" class="w-full bg-dark-800 border border-dark-700 rounded-lg py-2 px-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">Experienced developer looking to exchange coding skills for design expertise.</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Skills -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Skills Offered -->
+                <div class="bg-dark-850 border border-dark-800 rounded-xl p-6 shadow-lg">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                        Skills Offered
+                    </h3>
+                    <div class="flex flex-wrap gap-2 mb-4" id="skills-offered-container">
+                        <span class="skill-tag bg-purple-900/50 text-purple-300">JavaScript</span>
+                        <span class="skill-tag bg-purple-900/50 text-purple-300">React</span>
+                        <span class="skill-tag bg-purple-900/50 text-purple-300">Node.js</span>
+                    </div>
+                    <div class="flex">
+                        <input type="text" id="new-skill-offered" placeholder="Add a skill" class="flex-grow bg-dark-800 border border-dark-700 rounded-l-lg py-2 px-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                        <button id="add-skill-offered" class="bg-purple-600 hover:bg-purple-500 px-4 py-2 rounded-r-lg font-medium transition-colors">
+                            Add
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Skills Wanted -->
+                <div class="bg-dark-850 border border-dark-800 rounded-xl p-6 shadow-lg">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        Skills Wanted
+                    </h3>
+                    <div class="mb-4">
+                        <div class="flex flex-wrap gap-2 mb-4" id="skills-wanted-container">
+                            <span class="skill-tag bg-dark-800 text-purple-400 border border-purple-900">Python</span>
+                            <span class="skill-tag bg-dark-800 text-purple-400 border border-purple-900">Game Script</span>
+                            <span class="skill-tag bg-dark-800 text-purple-400 border border-purple-900">Graphic Design</span>
+                        </div>
+                        <div class="flex">
+                            <input type="text" id="new-skill-wanted" placeholder="Add a desired skill" class="flex-grow bg-dark-800 border border-dark-700 rounded-l-lg py-2 px-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                            <button id="add-skill-wanted" class="bg-purple-600 hover:bg-purple-500 px-4 py-2 rounded-r-lg font-medium transition-colors">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Features -->
+                <div class="bg-dark-850 border border-dark-800 rounded-xl p-6 shadow-lg">
+                    <h3 class="text-xl font-bold text-white mb-4">Additional Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Experience Level</label>
+                            <select class="w-full bg-dark-800 border border-dark-700 rounded-lg py-2 px-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                <option>Beginner</option>
+                                <option selected>Intermediate</option>
+                                <option>Advanced</option>
+                                <option>Expert</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Preferred Contact Method</label>
+                            <select class="w-full bg-dark-800 border border-dark-700 rounded-lg py-2 px-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                <option>SkillSwap Messaging</option>
+                                <option selected>Email</option>
+                                <option>Video Call</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+ <script src="/resources/js/profile.js"></script>
+
+
+</body>
+</html>
