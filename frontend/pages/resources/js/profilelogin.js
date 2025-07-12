@@ -104,8 +104,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     password
                 });
                 api.showNotification('Registration successful!', 'success');
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('user', JSON.stringify(data.user));
                 setTimeout(() => {
-                    window.location.href = '/pages/profile.html';
+                    window.location.href = '/pages/index.html';
                 }, 1000);
             } catch (err) {
                 api.showNotification('Registration failed: ' + api.formatError(err), 'error');

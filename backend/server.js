@@ -88,15 +88,13 @@ app.get('*', (req, res) => {
   if (req.path.startsWith('/api/')) {
     return res.status(404).json({ error: 'API endpoint not found' });
   }
-  
   // Serve the appropriate HTML file
   let filePath = req.path;
   if (filePath === '/') {
-    filePath = '/pages/index.html';
+    filePath = '/pages/index.html'; // Serve index.html from /pages at root
   } else if (!filePath.includes('.')) {
     filePath = `/pages${filePath}.html`;
   }
-  
   const fullPath = path.join(__dirname, '../frontend', filePath);
   res.sendFile(fullPath, (err) => {
     if (err) {

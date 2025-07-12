@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const data = await api.login({ email, password });
             api.showNotification('Login successful!', 'success');
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('user', JSON.stringify(data.user));
             setTimeout(() => {
                 window.location.href = '/pages/profile.html';
             }, 1000);

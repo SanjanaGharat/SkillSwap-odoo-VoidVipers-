@@ -27,48 +27,59 @@
         // Initialize API client
         document.addEventListener('DOMContentLoaded', async function() {
             const api = new SkillSwapAPI();
-            // Fetch and render user profile
-            try {
-                const { user } = await api.getProfile();
-                // Populate skills offered
-                const offeredContainer = document.getElementById('skills-offered-container');
-                offeredContainer.innerHTML = '';
-                (user.skillsOffered || []).forEach(skill => {
-                    const skillTag = document.createElement('span');
-                    skillTag.className = 'skill-tag bg-purple-900/50 text-purple-300';
-                    skillTag.textContent = skill.name;
-                    offeredContainer.appendChild(skillTag);
-                });
-                // Populate skills wanted
-                const wantedContainer = document.getElementById('skills-wanted-container');
-                wantedContainer.innerHTML = '';
-                (user.skillsWanted || []).forEach(skill => {
-                    const skillTag = document.createElement('span');
-                    skillTag.className = 'skill-tag bg-dark-800 text-purple-400 border border-purple-900';
-                    skillTag.textContent = skill.name;
-                    wantedContainer.appendChild(skillTag);
-                });
-            } catch (err) {
-                console.error('Failed to load profile:', err);
-            }
+            // Elements
+            const nameInput = document.querySelector('input[type="text"]');
+            const locationInput = document.querySelectorAll('input[type="text"]')[1];
+            const availabilitySelect = document.querySelector('select');
+            const bioTextarea = document.querySelector('textarea');
+            const offeredContainer = document.getElementById('skills-offered-container');
+            const wantedContainer = document.getElementById('skills-wanted-container');
+            const addSkillOfferedBtn = document.getElementById('add-skill-offered');
+            const addSkillWantedBtn = document.getElementById('add-skill-wanted');
+            const newSkillOfferedInput = document.getElementById('new-skill-offered');
+            const newSkillWantedInput = document.getElementById('new-skill-wanted');
+            const saveBtn = document.querySelector('button.bg-gradient-to-r');
 
-            // Add skill offered
-            document.getElementById('add-skill-offered').addEventListener('click', async function() {
-                const input = document.getElementById('new-skill-offered');
-                if (input.value.trim() !== '') {
-                    try {
-                        // Get current profile
-                        const { user } = await api.getProfile();
-                        const newSkill = { name: input.value.trim(), category: 'General' };
-                        const updatedSkills = [...(user.skillsOffered || []), newSkill];
-                        await api.updateProfile({ skillsOffered: updatedSkills });
-                        // Update UI
-                        const container = document.getElementById('skills-offered-container');
+            // Fetch and render user profile
+            async function loadProfile() {
+                try {
+                    const { user } = await api.getProfile();
+                    nameInput.value = user.name || '';
+                    locationInput.value = user.location || '';
+                    if (user.availability) availabilitySelect.value = user.availability.charAt(0).toUpperCase() + user.availability.slice(1);
+                    bioTextarea.value = user.bio || '';
+                    // Populate skills offered
+                    offeredContainer.innerHTML = '';
+                    (user.skillsOffered || []).forEach(skill => {
                         const skillTag = document.createElement('span');
                         skillTag.className = 'skill-tag bg-purple-900/50 text-purple-300';
-                        skillTag.textContent = newSkill.name;
-                        container.appendChild(skillTag);
-                        input.value = '';
+                        skillTag.textContent = skill.name;
+                        offeredContainer.appendChild(skillTag);
+                    });
+                    // Populate skills wanted
+                    wantedContainer.innerHTML = '';
+                    (user.skillsWanted || []).forEach(skill => {
+                        const skillTag = document.createElement('span');
+                        skillTag.className = 'skill-tag bg-dark-800 text-purple-400 border border-purple-900';
+                        skillTag.textContent = skill.name;
+                        wantedContainer.appendChild(skillTag);
+                    });
+                } catch (err) {
+                    api.showNotification('Failed to load profile: ' + api.formatError(err), 'error');
+                }
+            }
+            await loadProfile();
+
+            // Add skill offered
+            addSkillOfferedBtn.addEventListener('click', async function() {
+                if (newSkillOfferedInput.value.trim() !== '') {
+                    try {
+                        const { user } = await api.getProfile();
+                        const newSkill = { name: newSkillOfferedInput.value.trim(), category: 'General' };
+                        const updatedSkills = [...(user.skillsOffered || []), newSkill];
+                        await api.updateProfile({ skillsOffered: updatedSkills });
+                        await loadProfile();
+                        newSkillOfferedInput.value = '';
                     } catch (err) {
                         api.showNotification('Failed to add skill: ' + api.formatError(err), 'error');
                     }
@@ -76,25 +87,39 @@
             });
 
             // Add skill wanted
-            document.getElementById('add-skill-wanted').addEventListener('click', async function() {
-                const input = document.getElementById('new-skill-wanted');
-                if (input.value.trim() !== '') {
+            addSkillWantedBtn.addEventListener('click', async function() {
+                if (newSkillWantedInput.value.trim() !== '') {
                     try {
-                        // Get current profile
                         const { user } = await api.getProfile();
-                        const newSkill = { name: input.value.trim(), category: 'General' };
+                        const newSkill = { name: newSkillWantedInput.value.trim(), category: 'General' };
                         const updatedSkills = [...(user.skillsWanted || []), newSkill];
                         await api.updateProfile({ skillsWanted: updatedSkills });
-                        // Update UI
-                        const container = document.getElementById('skills-wanted-container');
-                        const skillTag = document.createElement('span');
-                        skillTag.className = 'skill-tag bg-dark-800 text-purple-400 border border-purple-900';
-                        skillTag.textContent = newSkill.name;
-                        container.appendChild(skillTag);
-                        input.value = '';
+                        await loadProfile();
+                        newSkillWantedInput.value = '';
                     } catch (err) {
                         api.showNotification('Failed to add skill: ' + api.formatError(err), 'error');
                     }
+                }
+            });
+
+            // Save changes
+            saveBtn.addEventListener('click', async function() {
+                saveBtn.disabled = true;
+                saveBtn.textContent = 'Saving...';
+                try {
+                    await api.updateProfile({
+                        name: nameInput.value,
+                        location: locationInput.value,
+                        availability: availabilitySelect.value.toLowerCase(),
+                        bio: bioTextarea.value
+                    });
+                    api.showNotification('Profile updated!', 'success');
+                    await loadProfile();
+                } catch (err) {
+                    api.showNotification('Failed to update profile: ' + api.formatError(err), 'error');
+                } finally {
+                    saveBtn.disabled = false;
+                    saveBtn.textContent = 'Save Changes';
                 }
             });
 

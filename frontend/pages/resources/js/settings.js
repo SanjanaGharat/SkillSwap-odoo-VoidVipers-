@@ -63,4 +63,42 @@ tailwind.config = {
                     document.querySelector(target).classList.add('active');
                 });
             });
+
+            const api = new SkillSwapAPI();
+            // Fetch and populate user profile
+            async function loadProfile() {
+                try {
+                    const { user } = await api.getProfile();
+                    document.querySelectorAll('input, textarea, select').forEach(field => {
+                        if (field.name && user[field.name] !== undefined) {
+                            field.value = user[field.name];
+                        }
+                    });
+                } catch (err) {
+                    api.showNotification('Failed to load profile: ' + api.formatError(err), 'error');
+                }
+            }
+            loadProfile();
+            // Save changes
+            const saveBtn = document.querySelector('button.bg-gradient-to-r');
+            if (saveBtn) {
+                saveBtn.addEventListener('click', async function() {
+                    saveBtn.disabled = true;
+                    saveBtn.textContent = 'Saving...';
+                    const updates = {};
+                    document.querySelectorAll('input, textarea, select').forEach(field => {
+                        if (field.name) updates[field.name] = field.value;
+                    });
+                    try {
+                        await api.updateProfile(updates);
+                        api.showNotification('Profile updated!', 'success');
+                        await loadProfile();
+                    } catch (err) {
+                        api.showNotification('Failed to update profile: ' + api.formatError(err), 'error');
+                    } finally {
+                        saveBtn.disabled = false;
+                        saveBtn.textContent = 'Save Changes';
+                    }
+                });
+            }
         });
