@@ -65,7 +65,7 @@ Key concepts:
 - Secure authentication
 - Admin moderation tools
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 **Frontend:**
 - HTML5, CSS3, JavaScript
@@ -77,7 +77,7 @@ Key concepts:
 **Database:**
 - [Firestore/MongoDB/other]
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Modern web browser
