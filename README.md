@@ -1,86 +1,102 @@
-# SkillSwap - Odoo Hackathon Project 
-   ~Team -VoidVipers
+# SkillSwap - Odoo Hackathon Project
 
-A web application that enables users to exchange skills with others in their community.
+## Team VoidVipers
 
-## Problem Statement
+### 👥 Team Members
+
+**Team Leader**  
+👨‍💻 Shashwat Vikram Singh  
+📧 shashwatvikram.singh8@gmail.com  
+📞 +91 9981171354  
+
+**Members**  
+👩‍💻 Sanjana Sajan Gharat  
+📧 shashwatvikramsingh2022@vitbhopal.ac.in  
+📞 +91 9619750636  
+
+👨‍💻 Imtisal Sahil Ansari  
+📧 imtisalsahil@gmail.com  
+📞 +91 9599563021  
+
+👩‍💻 Jahnvi Saxena  
+📧 saxenajahnvi7@gmail.com  
+📞 +91 7909424387  
+
+## 🌟 Project Overview
+**SkillSwap** is a web application that enables users to exchange skills with others in their community through a barter system, creating a knowledge-sharing economy.
+
+## 🚀 Problem Statement
 
 ### The Challenge:
-Many people want to learn new skills but face barriers like:
-- High costs of courses/tutorials
-- Limited access to mentors
-- Wasted potential of unused skills they already possess
-- Difficulty finding trustworthy local skill exchanges
+Barriers to skill acquisition:
+- 💰 High costs of traditional education
+- 🧑‍🏫 Limited access to mentors
+- 🎓 Wasted potential of unused skills
+- 🤝 Difficulty finding trustworthy local exchanges
 
-### Current Gaps:
-1. No centralized platform for reciprocal skill sharing
-2. Existing platforms focus on paid services or one-way teaching
-3. Lack of systems to verify skill proficiency
-4. No structured way to manage skill exchange requests
+### Current Market Gaps:
+1. No dedicated reciprocal skill-sharing platforms
+2. Existing solutions focus on paid/one-way teaching
+3. Lack of skill verification systems
+4. No structured exchange management
 
-##  Our Solution
+## 💡 Our Solution
 
-The **Skill Swap Platform** solves these problems by:
+### SkillSwap Platform Features:
 
-1. **Creating a Barter System for Skills**:
-   - Users list skills they can teach and skills they want to learn
-   - Algorithm suggests compatible matches
+**🔄 Skill Barter System**
+- Dual-profile system (skills offered/wanted)
+- AI-powered matching algorithm
+- Skill equivalency metrics
 
-2. **Building Trust Through Community**:
-   - Profile verification system
-   - Skill endorsement feature
-   - Rating system after each swap
+**🔒 Trust Framework**
+- OTP-based verification
+- Peer endorsements
+- Tiered rating system (per skill category)
 
-3. **Structured Exchange Management**:
-   - Request/accept/reject workflow
-   - Scheduling system for sessions
-   - Progress tracking
+**📅 Exchange Management**
+- Request workflow with counter-offers
+- Integrated scheduling (Google Calendar sync)
+- Session progress tracking
 
-4. **Accessibility Features**:
-   - Free to use
-   - Local and remote exchange options
-   - Mobile-friendly PWA design
+**♿ Accessibility**
+- Zero-cost model
+- Hybrid exchange options (local/remote)
+- Progressive Web App (PWA) implementation
 
-## About
-
-The Skill Swap Platform connects people who want to teach and learn skills from each other. Instead of monetary transactions, users exchange their knowledge - you teach me photography, I'll teach you Spanish!
-
-Key concepts:
-- **Skill sharing economy** - Trade knowledge instead of money
-- **Community building** - Connect with people in your area
-- **Accessible learning** - Free skill development for everyone
-
-
-
-## Features
-
-### Core Functionality
-- ✅ User profiles with skills offered/wanted
-- 🔍 Search and browse users by skill
-- 🔄 Request/accept/reject skill swaps
-- ⭐ Rating system after completed swaps
-
-### Technical Highlights
-- Responsive PWA (works on all devices)
-- Real-time updates
-- Secure authentication
-- Admin moderation tools
-
-##  Technology Stack
+## 🛠 Technology Stack
 
 **Frontend:**
-- HTML5, CSS3, JavaScript
-
+- Odoo JS Framework
+- HTML5, CSS3, JavaScript (ES6+)
+- Responsive PWA design
 
 **Backend:**
-- [Firebase/Node.js/other]
+- Python (Odoo framework)
+- Firebase Authentication
 
 **Database:**
-- [Firestore/MongoDB/other]
+- PostgreSQL (Odoo ORM)
+- Firebase Firestore (for real-time features)
 
-##  Getting Started
+**DevOps:**
+- Docker containerization
+- GitHub Actions CI/CD
 
-### Prerequisites
-- Modern web browser
-- [Node.js/npm if required]
+## ✨ Key Features
+
+### Core Functionality
+| Feature | Status | Description |
+|---------|--------|-------------|
+| Skill Profiling | ✅ | Users can list multiple skills with proficiency levels |
+| Smart Matching | 🔄 | Algorithm suggests compatible swaps based on skills/location |
+| Exchange Workflow | ✅ | End-to-end request management (request/negotiate/complete) |
+| Rating System | ⭐ | Multi-dimensional ratings (teaching ability, punctuality, etc.) |
+
+### Technical Highlights
+- Real-time notifications (WebSockets)
+- JWT-based authentication
+- Admin moderation dashboard
+- Data export (PDF session reports)
+
 
