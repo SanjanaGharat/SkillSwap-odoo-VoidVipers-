@@ -76,4 +76,43 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('user', JSON.stringify(userData));
         checkAuthState();
     }
+
+    // Registration logic
+    const api = new SkillSwapAPI();
+    const form = document.querySelector('form');
+    if (form) {
+        const registerBtn = form.querySelector('button[type="submit"]');
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            registerBtn.disabled = true;
+            registerBtn.textContent = 'Creating...';
+            const firstName = document.getElementById('first-name').value.trim();
+            const lastName = document.getElementById('last-name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            if (password !== confirmPassword) {
+                api.showNotification('Passwords do not match', 'error');
+                registerBtn.disabled = false;
+                registerBtn.textContent = 'Create Account';
+                return;
+            }
+            try {
+                const data = await api.register({
+                    name: firstName + ' ' + lastName,
+                    email,
+                    password
+                });
+                api.showNotification('Registration successful!', 'success');
+                setTimeout(() => {
+                    window.location.href = '/pages/profile.html';
+                }, 1000);
+            } catch (err) {
+                api.showNotification('Registration failed: ' + api.formatError(err), 'error');
+            } finally {
+                registerBtn.disabled = false;
+                registerBtn.textContent = 'Create Account';
+            }
+        });
+    }
 });
