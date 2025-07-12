@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
 
-            // Add event listeners for desktop dropdown
+            // Add event listeners for desktop dropdown--
             document.getElementById('profile-icon')?.addEventListener('click', toggleProfileDropdown);
             document.getElementById('logout-btn')?.addEventListener('click', logoutUser);
         }
