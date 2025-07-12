@@ -1,0 +1,6 @@
+    .skill-tag {
+            @apply px-3 py-1 rounded-full text-sm font-medium flex items-center;
+        }
+        .skill-tag:after {
+            @apply content-['×'] ml-2 text-xs cursor-pointer hover:text-white;
+        }

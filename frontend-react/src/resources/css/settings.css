@@ -1,0 +1,14 @@
+        .settings-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(145deg, rgba(30,11,54,0.6) 0%, rgba(18,18,18,0.8) 100%);
+        }
+        .settings-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px -4px rgba(0,0,0,0.2);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }

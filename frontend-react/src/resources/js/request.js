@@ -1,0 +1,100 @@
+ function showScreen5() {
+            document.getElementById('screen-4').classList.add('hidden');
+            const screen5 = document.getElementById('screen-5');
+            screen5.classList.remove('hidden');
+            screen5.classList.add('fade-slide');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showScreen4() {
+            document.getElementById('screen-5').classList.add('hidden');
+            document.getElementById('screen-4').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        purple: {
+                            900: '#3B0764',
+                            800: '#5B21B6',
+                            700: '#6D28D9',
+                            600: '#7C3AED',
+                            500: '#8B5CF6',
+                        },
+                        dark: {
+                            950: '#0A0A0A',
+                            900: '#171717',
+                            850: '#1E1E1E',
+                            800: '#262626',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'purple-glow': '0 4px 14px 0 rgba(139, 92, 246, 0.25)',
+                    }
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const api = new SkillSwapAPI();
+            // Show swap form
+            window.showScreen5 = function() {
+                document.getElementById('screen-4').classList.add('hidden');
+                const screen5 = document.getElementById('screen-5');
+                screen5.classList.remove('hidden');
+                screen5.classList.add('fade-slide');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+            window.showScreen4 = function() {
+                document.getElementById('screen-5').classList.add('hidden');
+                document.getElementById('screen-4').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+            // Handle swap request form submit
+            const form = document.querySelector('#screen-5 form');
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Sending...';
+                    // Get selected skills and message
+                    const offeredSkillName = form.querySelector('select').value;
+                    const wantedSkillName = form.querySelectorAll('select')[1].value;
+                    const message = form.querySelector('textarea')?.value || '';
+                    // Dynamically get receiverId, offeredSkillId, wantedSkillId
+                    try {
+                        // Example: get receiverId from URL or context (replace with your logic)
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const receiverId = urlParams.get('receiverId');
+                        if (!receiverId) throw new Error('No receiver selected');
+                        // Get skill IDs from backend
+                        const skills = await api.getSkills();
+                        const offeredSkill = skills.skills.find(s => s.name === offeredSkillName);
+                        const wantedSkill = skills.skills.find(s => s.name === wantedSkillName);
+                        if (!offeredSkill || !wantedSkill) throw new Error('Skill not found');
+                        await api.createSwap({
+                            receiverId,
+                            offeredSkillId: offeredSkill._id,
+                            wantedSkillId: wantedSkill._id,
+                            message,
+                            proposedFormat: 'online',
+                            proposedDuration: 60
+                        });
+                        api.showNotification('Swap request sent!', 'success');
+                        setTimeout(() => window.location.href = '/pages/approval.html', 1000);
+                    } catch (err) {
+                        api.showNotification('Failed to send swap request: ' + api.formatError(err), 'error');
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Send Request';
+                    }
+                });
+            }
+        });

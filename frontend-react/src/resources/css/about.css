@@ -1,0 +1,15 @@
+ .team-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(145deg, rgba(30,11,54,0.6) 0%, rgba(18,18,18,0.8) 100%);
+        }
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.2);
+            border-color: rgba(124, 58, 237, 0.4);
+        }
+        .initials-circle {
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            background: linear-gradient(135deg, rgba(94, 53, 177, 0.8) 0%, rgba(126, 87, 194, 0.8) 100%);
+        }

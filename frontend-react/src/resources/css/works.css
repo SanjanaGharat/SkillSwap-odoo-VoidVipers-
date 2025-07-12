@@ -1,0 +1,26 @@
+ .workflow-step {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .workflow-step:hover {
+            transform: translateY(-5px);
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            background: linear-gradient(135deg, rgba(94, 53, 177, 0.8) 0%, rgba(126, 87, 194, 0.8) 100%);
+        }
+        .workflow-connector {
+            height: 40px;
+            width: 2px;
+            background: linear-gradient(to bottom, #5e35b1, #7e57c2);
+            margin-left: 19px;
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, rgba(30,11,54,0.6) 0%, rgba(18,18,18,0.8) 100%);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
+        }

@@ -1,0 +1,12 @@
+        body {
+            @apply antialiased;
+        }
+        .profile-icon {
+            @apply bg-gradient-to-br from-purple-700 to-purple-900;
+        }
+        .skill-offered {
+            @apply bg-dark-800 text-purple-400 border border-purple-900;
+        }
+        .skill-wanted {
+            @apply bg-purple-900/50 text-purple-300 border border-purple-800;
+        }
