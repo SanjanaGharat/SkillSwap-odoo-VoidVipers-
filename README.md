@@ -72,12 +72,11 @@ Barriers to skill acquisition:
 - Responsive PWA design
 
 **Backend:**
-- Python (Odoo framework)
+- Express JS 
 - Firebase Authentication
 
 **Database:**
-- PostgreSQL (Odoo ORM)
-- Firebase Firestore (for real-time features)
+- MongoDB
 
 **DevOps:**
 - Docker containerization
